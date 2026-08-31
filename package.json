@@ -1,0 +1,17 @@
+{
+  "name": "frontend-migration-example",
+  "private": true,
+  "packageManager": "yarn@1.22.22",
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "preview": "turbo run preview --parallel",
+    "pm2:start": "yarn build && pm2 start ecosystem.config.cjs",
+    "pm2:stop": "pm2 delete frontend-migration-vue frontend-migration-react"
+  },
+  "devDependencies": {
+    "pm2": "^5.4.3",
+    "turbo": "^2.5.6"
+  }
+}
